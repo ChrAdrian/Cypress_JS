@@ -27,7 +27,7 @@
 // Customized commands
 Cypress.Commands.add("DoLogin", (email, password) => {
 
-    cy.visit('https://demo.nopcommerce.com/login')
+    cy.visit('https://admin-demo.nopcommerce.com/login')
     cy.get('input[name=Email]').clear().type(email)
     cy.get('input[name=Password]').clear().type(password)
     cy.get('form > .buttons > .button-1').click()
