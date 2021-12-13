@@ -12,17 +12,35 @@ describe("Post API DELETE users", ()=>{
                 'authorization' : "Bearer " + accessToken
             },
             body: {
-                    "email": "tes123@gmail.com",
-                    "name": "Adrian123",
+                    "email": "testing123@gmail.com",
+                    "name": "Adriann123",
                     "gender": "male",
                     "status": "active"
                 }
             }).then((res)=>{
                 expect(res.status).to.eq(201)
-                expect(res.body.data).has.property('email', "tes123@gmail.com")
-                expect(res.body.data).has.property('name', "Adrian123")
+                expect(res.body.data).has.property('email', "testing123@gmail.com")
+                expect(res.body.data).has.property('name', "Adriann123")
                 expect(res.body.data).has.property('gender', "male")
                 expect(res.body.data).has.property('status', "active")
+            }).then((res)=>{
+                const userId = res.body.data.id
+                cy.log("User id: " + userId)
+                cy.request({
+                    method: "DELETE",
+                    url: "https://gorest.co.in/public/v1/users/"+userId,
+                    headers : {
+                        'authorization' : "Bearer " + accessToken
+                    },
+                    body: {
+                            "email": "tes12345678910@gmail.com",
+                            "name": "Adrian12345678910",
+                            "gender": "male",
+                            "status": "active"
+                        }
+                }).then((res)=>{
+                    expect(res.status).to.eq(204)
+                })
             })
     })
 })
