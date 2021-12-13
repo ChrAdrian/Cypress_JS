@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Check weather information", ()=>{
+describe("Linked GET calls", ()=>{
     it('Get weather informations for cities', ()=>{
 
         cy.request({

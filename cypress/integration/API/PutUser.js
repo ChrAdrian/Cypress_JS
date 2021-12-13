@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("Post API users", ()=>{
+describe("Post API and PUT users", ()=>{
 
     let accessToken = '5d049412c7ea78180c042d17c062f281fa6d7a160fd779e98dd71fca39521209'
     
