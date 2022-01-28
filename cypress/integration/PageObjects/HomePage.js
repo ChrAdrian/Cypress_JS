@@ -53,27 +53,6 @@ typeIntoSearchBar(value)
     return this
 }
 
-fillEmail(value)
-{
-    const field = cy.get('[id=Email]')
-    field.clear()
-    field.type(value)
-    return this
-}
-
-fillPassword(value)
-{
-    const field = cy.get('[id=Password]')
-    field.clear()
-    field.type(value)
-    return this
-}
-
-submit()
-{
-    const button = cy.get('.button-1')
-    button.click()
-}
 }
 
 export default HomePage
