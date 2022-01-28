@@ -3,6 +3,7 @@
 import HomePage from "../PageObjects/HomePage"
 import ResultsPage from "../PageObjects/ResultsPage"
 import ItemPage from "../PageObjects/ItemPage"
+import ShoppingCartPage from "../PageObjects/ShoppingCartPage"
 
 describe('About You', function()
 {
@@ -11,6 +12,7 @@ describe('About You', function()
         const home_page = new HomePage()
         const results_page = new ResultsPage()
         const item_page = new ItemPage()
+        const shopping_cart_page = new ShoppingCartPage()
         home_page.clearCookies()
         // home_page.viewPort()
         home_page.visit()
@@ -26,5 +28,16 @@ describe('About You', function()
         item_page.addToCart()
         item_page.continueShopping()
         item_page.checkItemInShoppingCart()
+        shopping_cart_page.openShoppingCart()
+        shopping_cart_page.deleteSingleItem()
+        shopping_cart_page.confirmDeleteItem()
+        item_page.checkEmptyShoppingCart()
+        home_page.openSearchBar()
+        home_page.typeIntoSearchBar('jeans')
+        results_page.selectItem()
+        item_page.selectSizeXSx34()
+        item_page.addToCart()
+        item_page.goToBasket()
+        shopping_cart_page.goToCheckout()
     })
 })

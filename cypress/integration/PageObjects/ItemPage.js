@@ -48,6 +48,13 @@ class ItemPage
     .should("have.attr", "data-basket-amount", "1")
 }
 
+    goToBasket()
+{
+    cy.get('[data-testid="goToBasketButton"]')
+    .should("be.visible")
+    .click()
+}
+
 }
 
 export default ItemPage
